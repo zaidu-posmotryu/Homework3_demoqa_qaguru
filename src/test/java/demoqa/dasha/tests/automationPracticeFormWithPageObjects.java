@@ -29,7 +29,7 @@ public class automationPracticeFormWithPageObjects {
                 .setGender("Female")
                 .setUserNumber("1234567890")
                 .setBirthDate("15", "May", "1990")
-                .setSubject("Arts")
+                .setSubjects("Arts")
                 .setHobby("Reading")
                 .uploadPicture("this_is_my_life.jpg")
                 .setAddress("My new address")

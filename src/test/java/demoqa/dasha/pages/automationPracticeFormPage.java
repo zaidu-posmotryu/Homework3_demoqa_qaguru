@@ -57,8 +57,8 @@ public class automationPracticeFormPage {
         calendarComponent.setDate(day, month, year);
         return this;
     }
-    public automationPracticeFormPage setSubject(String value) {
-        subjectsComponent.setSubject();
+    public automationPracticeFormPage setSubjects(String subj) {
+        subjectsComponent.setSubject(subj);
         return this;
     }
     public automationPracticeFormPage setHobby (String value) {
