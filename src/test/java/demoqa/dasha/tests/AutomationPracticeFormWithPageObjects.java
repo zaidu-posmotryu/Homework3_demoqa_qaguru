@@ -1,16 +1,12 @@
 package demoqa.dasha.tests;
 
 import com.codeborne.selenide.Configuration;
-import demoqa.dasha.pages.automationPracticeFormPage;
+import demoqa.dasha.pages.AutomationPracticeFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-
-public class automationPracticeFormWithPageObjects {
-    automationPracticeFormPage automationPracticeFormPage = new automationPracticeFormPage();
+public class AutomationPracticeFormWithPageObjects {
+    AutomationPracticeFormPage automationPracticeFormPage = new AutomationPracticeFormPage();
 
     @BeforeAll
     static void setUp() {
@@ -20,8 +16,6 @@ public class automationPracticeFormWithPageObjects {
     }
     @Test
     void checkFormTest(){
-        automationPracticeFormPage.openPage();
-
         automationPracticeFormPage.openPage()
                 .setFirstName("Jane")
                 .setLastName("Doe")
@@ -30,8 +24,8 @@ public class automationPracticeFormWithPageObjects {
                 .setUserNumber("1234567890")
                 .setBirthDate("15", "May", "1990")
                 .setSubjects("Arts")
-                .setHobby("Reading")
-                .uploadPicture("this_is_my_life.jpg")
+                .setHobby()
+                .uploadPicture()
                 .setAddress("My new address")
                 .setLocation("Uttar Pradesh", "Agra")
                 .submitTheForm();

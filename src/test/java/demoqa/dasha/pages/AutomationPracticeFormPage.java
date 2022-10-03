@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class automationPracticeFormPage {
+public class AutomationPracticeFormPage {
     private CalendarComponent calendarComponent = new CalendarComponent();
     private ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
     private SubjectsComponent subjectsComponent = new SubjectsComponent();
@@ -25,67 +25,67 @@ public class automationPracticeFormPage {
 
     private final static String TITLE_TEXT = "Student Registration Form";
 
-    public automationPracticeFormPage openPage() {
+    public AutomationPracticeFormPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         return this;
     }
-      public automationPracticeFormPage setFirstName(String value) {
+      public AutomationPracticeFormPage setFirstName(String value) {
           firstNameInput.setValue(value);
           return this;
     }
-      public automationPracticeFormPage setLastName(String value) {
+      public AutomationPracticeFormPage setLastName(String value) {
           lastNameInput.setValue(value);
           return this;
     }
-      public automationPracticeFormPage setEmail (String value) {
+      public AutomationPracticeFormPage setEmail(String value) {
           emailInput.setValue(value);
           return this;
     }
-      public automationPracticeFormPage setGender(String value) {
+      public AutomationPracticeFormPage setGender(String value) {
           $("#genterWrapper").$(byText(value)).click();
           return this;
     }
-    public automationPracticeFormPage setUserNumber(String value) {
+    public AutomationPracticeFormPage setUserNumber(String value) {
         $("#userNumber").setValue(value);
         return this;
     }
-    public automationPracticeFormPage setBirthDate(String day, String month, String year) {
+    public AutomationPracticeFormPage setBirthDate(String day, String month, String year) {
         $ ("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
-    public automationPracticeFormPage setSubjects(String subj) {
+    public AutomationPracticeFormPage setSubjects(String subj) {
         subjectsComponent.setSubject(subj);
         return this;
     }
-    public automationPracticeFormPage setHobby (String value) {
+    public AutomationPracticeFormPage setHobby() {
         $ (byText("Reading")).click();
         return this;
     }
-    public automationPracticeFormPage uploadPicture(String value) {
+    public AutomationPracticeFormPage uploadPicture() {
         $ ("input#uploadPicture").uploadFromClasspath("this_is_my_life.jpg");
         return this;
     }
-    public automationPracticeFormPage setAddress(String value) {
+    public AutomationPracticeFormPage setAddress(String value) {
         addressInput.setValue(value);
         return this;
     }
-    public automationPracticeFormPage setLocation(String state, String city) {
+    public AutomationPracticeFormPage setLocation(String state, String city) {
         stateAndCityComponent.setStateAndCity(state, city);
         return this;
     }
-    public automationPracticeFormPage submitTheForm() {
+    public AutomationPracticeFormPage submitTheForm() {
         $ ("[id=submit]").click();
         return this;
     }
-    public automationPracticeFormPage checkResultsTableVisible() {
+    public AutomationPracticeFormPage checkResultsTableVisible() {
         resultsTableComponent.checkVisible();
         return this;
     }
-    public automationPracticeFormPage checkResult(String key, String value) {
+    public AutomationPracticeFormPage checkResult(String key, String value) {
         resultsTableComponent.checkResult(key, value);
         return this;
     }

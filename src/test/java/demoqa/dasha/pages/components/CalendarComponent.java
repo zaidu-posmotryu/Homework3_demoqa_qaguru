@@ -1,12 +1,5 @@
 package demoqa.dasha.pages.components;
 
-import com.codeborne.selenide.Configuration;
-import demoqa.dasha.pages.automationPracticeFormPage;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CalendarComponent {
