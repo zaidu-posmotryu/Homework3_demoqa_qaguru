@@ -1,10 +1,13 @@
 package demoqa.dasha.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import demoqa.dasha.pages.components.CalendarComponent;
 import demoqa.dasha.pages.components.ResultsTableComponent;
 import demoqa.dasha.pages.components.StateAndCityComponent;
 import demoqa.dasha.pages.components.SubjectsComponent;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -21,9 +24,11 @@ public class AutomationPracticeFormPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
-            addressInput =  $("#currentAddress");
+            addressInput = $("#currentAddress");
 
     private final static String TITLE_TEXT = "Student Registration Form";
+
+    private static final Faker faker = new Faker(new Locale("en-US"));
 
     public AutomationPracticeFormPage openPage() {
         open("/automation-practice-form");
@@ -32,59 +37,73 @@ public class AutomationPracticeFormPage {
         executeJavaScript("$('#fixedban').remove()");
         return this;
     }
-      public AutomationPracticeFormPage setFirstName(String value) {
-          firstNameInput.setValue(value);
-          return this;
+
+    public AutomationPracticeFormPage setFirstName(String value) {
+        firstNameInput.setValue(value);
+        return this;
     }
-      public AutomationPracticeFormPage setLastName(String value) {
-          lastNameInput.setValue(value);
-          return this;
+
+    public AutomationPracticeFormPage setLastName(String value) {
+        lastNameInput.setValue(value);
+        return this;
     }
-      public AutomationPracticeFormPage setEmail(String value) {
-          emailInput.setValue(value);
-          return this;
+
+    public AutomationPracticeFormPage setEmail(String value) {
+        emailInput.setValue(value);
+        return this;
     }
-      public AutomationPracticeFormPage setGender(String value) {
-          $("#genterWrapper").$(byText(value)).click();
-          return this;
+
+    public AutomationPracticeFormPage setGender(String value) {
+        $("#genterWrapper").$(byText(value)).click();
+        return this;
     }
+
     public AutomationPracticeFormPage setUserNumber(String value) {
         $("#userNumber").setValue(value);
         return this;
     }
+
     public AutomationPracticeFormPage setBirthDate(String day, String month, String year) {
-        $ ("#dateOfBirthInput").click();
+        $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
+
     public AutomationPracticeFormPage setSubjects(String subj) {
         subjectsComponent.setSubject(subj);
         return this;
     }
-    public AutomationPracticeFormPage setHobby() {
-        $ (byText("Reading")).click();
+
+    public AutomationPracticeFormPage setHobby(String value) {
+        $(byText("Reading")).click();
         return this;
     }
+
     public AutomationPracticeFormPage uploadPicture() {
-        $ ("input#uploadPicture").uploadFromClasspath("this_is_my_life.jpg");
+        $("input#uploadPicture").uploadFromClasspath("this_is_my_life.jpg");
         return this;
     }
+
     public AutomationPracticeFormPage setAddress(String value) {
         addressInput.setValue(value);
         return this;
     }
+
     public AutomationPracticeFormPage setLocation(String state, String city) {
         stateAndCityComponent.setStateAndCity(state, city);
         return this;
     }
+
     public AutomationPracticeFormPage submitTheForm() {
-        $ ("[id=submit]").click();
+        $("[id=submit]").click();
         return this;
     }
+
     public AutomationPracticeFormPage checkResultsTableVisible() {
         resultsTableComponent.checkVisible();
         return this;
     }
+
     public AutomationPracticeFormPage checkResult(String key, String value) {
         resultsTableComponent.checkResult(key, value);
         return this;

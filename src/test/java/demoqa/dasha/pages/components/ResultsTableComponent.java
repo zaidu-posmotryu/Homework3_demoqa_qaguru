@@ -16,6 +16,7 @@ public class ResultsTableComponent {
 
         return this;
     }
+
     public ResultsTableComponent checkResult(String key, String value) {
         $(".table-responsive table").$(byText(key)).parent().shouldHave(text(value));
 
