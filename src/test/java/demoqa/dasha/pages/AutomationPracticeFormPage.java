@@ -7,12 +7,12 @@ import demoqa.dasha.pages.components.ResultsTableComponent;
 import demoqa.dasha.pages.components.StateAndCityComponent;
 import demoqa.dasha.pages.components.SubjectsComponent;
 
+import java.io.File;
 import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class AutomationPracticeFormPage {
     private CalendarComponent calendarComponent = new CalendarComponent();
@@ -75,12 +75,13 @@ public class AutomationPracticeFormPage {
     }
 
     public AutomationPracticeFormPage setHobby(String value) {
-        $(byText("Reading")).click();
+        $("#hobbiesWrapper").$(byText(value)).click();
         return this;
     }
 
     public AutomationPracticeFormPage uploadPicture() {
-        $("input#uploadPicture").uploadFromClasspath("this_is_my_life.jpg");
+        $("input#uploadPicture").uploadFile(new File("src/test/resources/this_is_my_life.jpg"));
+        ;
         return this;
     }
 

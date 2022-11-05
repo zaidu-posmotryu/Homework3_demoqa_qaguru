@@ -11,6 +11,18 @@ public class TestUserData {
 
     private static final Faker faker = new Faker(new Locale("en-US"));
     static Random random = new Random();
+    public static String
+            firstName = faker.name().firstName(),
+            lastName = faker.name().lastName(),
+            email = faker.internet().emailAddress(),
+            gender = faker.demographic().sex(),
+            phone = faker.phoneNumber().subscriberNumber(10),
+            day = String.valueOf(faker.number().numberBetween(10, 28)),
+            month = getRandomMonth(),
+            year = String.valueOf(faker.number().numberBetween(1980, 2006)),
+            subject = getRandomSubject(),
+            hobby = getRandomHobby(),
+            currentAddress = faker.address().fullAddress();
 
     public static String getRandomMonth() {
         String[] month = {"January", "February", "March", "April",
@@ -28,14 +40,10 @@ public class TestUserData {
     }
 
     public static String getRandomHobby() {
-        String[] hobbies = {"Music", "Reading", "Music"};
+        String[] hobbies = {"Sports", "Reading", "Music"};
         int randomIndex = random.nextInt(hobbies.length);
         return hobbies[randomIndex];
     }
-
-    public static String
-            location = getRandomLocation(),
-            town = getRandomTown();
 
     public static String getRandomLocation() {
         List<String> state = Arrays.asList(
@@ -43,6 +51,10 @@ public class TestUserData {
         location = state.get(new Random().nextInt(state.size()));
         return location;
     }
+
+    public static String
+            location = getRandomLocation(),
+            town = getRandomTown();
 
     public static String getRandomTown() {
         List<String> town;
@@ -66,19 +78,6 @@ public class TestUserData {
         }
         return null;
     }
-
-    public static String
-            firstName = faker.name().firstName(),
-            lastName = faker.name().lastName(),
-            email = faker.internet().emailAddress(),
-            gender = faker.demographic().sex(),
-            phone = faker.phoneNumber().subscriberNumber(10),
-            day = String.valueOf(faker.number().numberBetween(10, 28)),
-            month = getRandomMonth(),
-            year = String.valueOf(faker.number().numberBetween(1980, 2006)),
-            subject = getRandomSubject(),
-            hobby = getRandomHobby(),
-            currentAddress = faker.address().fullAddress();
 }
 
 

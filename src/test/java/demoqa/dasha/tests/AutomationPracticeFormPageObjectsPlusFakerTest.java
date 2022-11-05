@@ -2,13 +2,11 @@ package demoqa.dasha.tests;
 
 import com.codeborne.selenide.Configuration;
 import demoqa.dasha.pages.AutomationPracticeFormPage;
+import demoqa.dasha.pages.TestUserData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-
-import static demoqa.dasha.pages.TestUserData.*;
-
-public class AutomationPracticeFormWithPageObjectsPlusFaker {
+public class AutomationPracticeFormPageObjectsPlusFakerTest extends TestUserData {
     AutomationPracticeFormPage automationPracticeFormPage = new AutomationPracticeFormPage();
 
     @BeforeAll
